@@ -1,1 +1,1 @@
-# verx0624-crud
+# default posatgres node structure
