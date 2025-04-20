@@ -2,7 +2,7 @@ import { envApp } from '@config/variables/app';
 import { envPostgres } from '@config/variables/postgres';
 import { DataSource } from 'typeorm';
 
-export const TypeOrmConnection = new DataSource({
+export const typeOrmConnection = new DataSource({
   type: 'postgres',
   host: envPostgres.host,
   port: envPostgres.port,

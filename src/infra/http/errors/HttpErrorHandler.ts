@@ -1,6 +1,6 @@
 import { NextFunction, Response, Request } from 'express'
 import { EHttpStatusCode } from '../protocols/EHttpStatusCode'
-import { HttpError } from './HttpError'
+import { HttpError } from './http-errors/HttpError'
 import { Logger } from '@infra/utils/logger/Logger'
 import { ErrorCustom } from '@infra/utils/ErrorCustom/ErrorCustom'
 

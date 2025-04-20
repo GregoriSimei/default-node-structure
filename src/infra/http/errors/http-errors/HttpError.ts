@@ -1,4 +1,4 @@
-import { EHttpStatusCode } from "../protocols/EHttpStatusCode";
+import { EHttpStatusCode } from "../../protocols/EHttpStatusCode";
 
 export class HttpError extends Error {
     private code: EHttpStatusCode
