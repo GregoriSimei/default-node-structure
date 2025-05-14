@@ -14,8 +14,7 @@ export default {
     },
     setupFiles: ['<rootDir>/jest.setup.ts'],
     testPathIgnorePatterns: ['<rootDir>/src/tests/'],
-    coveragePathIgnorePatterns: ['<rootDir>/src/tests/'],
-    collectCoverage: true,
+    coveragePathIgnorePatterns: ['<rootDir>/src/tests/', "/node_modules/", "/.*\\.entity\\.ts$"],
     coverageDirectory: 'coverage',
     coverageThreshold: {
       global: {

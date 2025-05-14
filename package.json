@@ -6,6 +6,8 @@
   "scripts": {
     "build": "rimraf build && tsc -p tsconfig-build.json",
     "dev": "tsnd --inspect --transpile-only --ignore-watch node_modules src/index.ts",
+    "db:migration": "tsnd ./scripts/typeorm/migration_generate.ts",
+    "db:run": "tsnd ./scripts/typeorm/migration_run.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"

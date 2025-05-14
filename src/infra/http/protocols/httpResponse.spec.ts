@@ -1,53 +1,57 @@
+import { HttpResponseHandler } from "./httpResponses";
+import { EHttpStatusCode } from "./EHttpStatusCode";
 
-import { EHttpStatusCode } from './EHttpStatusCode';
-import { created, ok, okNoData } from './httpResponses';
+describe("HttpResponseHandler", () => {
+  it("when ok is called without type should return json response with status 200", () => {
+    const data = { message: "success" };
+    const response = HttpResponseHandler.ok(data);
 
-describe('HTTP Response Helpers', () => {
-  describe('ok()', () => {
-    it('should return a 200 response with data and default type json', () => {
-      const data = { message: 'Success' };
-      const response = ok(data);
-
-      expect(response).toEqual({
-        body: data,
-        statusCode: EHttpStatusCode.OK,
-        type: 'json'
-      });
-    });
-
-    it('should return a 200 response with data and type message', () => {
-      const data = 'All right!';
-      const response = ok(data, 'message');
-
-      expect(response).toEqual({
-        body: data,
-        statusCode: EHttpStatusCode.OK,
-        type: 'message'
-      });
+    expect(response).toEqual({
+      body: data,
+      statusCode: EHttpStatusCode.OK,
+      type: "json",
     });
   });
 
-  describe('okNoData()', () => {
-    it('should return a 200 response with "OK" and type message', () => {
-      const response = okNoData();
+  it("when ok is called with type 'message' should return response with status 200 and type 'message'", () => {
+    const data = "OK message";
+    const response = HttpResponseHandler.ok(data, "message");
 
-      expect(response).toEqual({
-        body: 'OK',
-        statusCode: EHttpStatusCode.OK,
-        type: 'message'
-      });
+    expect(response).toEqual({
+      body: data,
+      statusCode: EHttpStatusCode.OK,
+      type: "message",
     });
   });
 
-  describe('created()', () => {
-    it('should return a 201 response with data', () => {
-      const data = { id: 1, name: 'Created resource' };
-      const response = created(data);
+  it("when okNoData is called should return status 200 with message body", () => {
+    const response = HttpResponseHandler.okNoData();
 
-      expect(response).toEqual({
-        body: data,
-        statusCode: EHttpStatusCode.CREATED
-      });
+    expect(response).toEqual({
+      statusCode: EHttpStatusCode.OK,
+      body: "OK",
+      type: "message",
+    });
+  });
+
+  it("when notFound is called should return status 404 and message body", () => {
+    const message = "Resource not found";
+    const response = HttpResponseHandler.notFound(message);
+
+    expect(response).toEqual({
+      statusCode: EHttpStatusCode.NOT_FOUND,
+      body: message,
+      type: "message",
+    });
+  });
+
+  it("when created is called should return status 201 and data", () => {
+    const data = { id: 1, name: "Created" };
+    const response = HttpResponseHandler.created(data);
+
+    expect(response).toEqual({
+      body: data,
+      statusCode: EHttpStatusCode.CREATED,
     });
   });
 });

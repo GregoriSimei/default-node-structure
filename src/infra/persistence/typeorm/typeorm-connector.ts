@@ -1,5 +1,5 @@
 import { DataSource as TypeOrmDataSource } from 'typeorm';
-import { typeOrmConnection } from './TypeORMConection';
+import { typeOrmConnection } from './typeorm-connection';
 import { Logger } from '@infra/utils/logger/Logger';
 import { IDataBaseConnector } from '../IDataBaseConnector';
 

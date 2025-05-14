@@ -1,4 +1,4 @@
-import { TypeOrmConnector as DataBaseConnector } from "@infra/persistence/typeorm/TypeORMConnector"
+import { TypeOrmConnector as DataBaseConnector } from "@infra/persistence/typeorm/typeorm-connector"
 import { Server } from "./server"
 import { Logger } from "@infra/utils/logger/Logger"
 

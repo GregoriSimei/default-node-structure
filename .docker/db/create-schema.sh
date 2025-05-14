@@ -2,7 +2,7 @@
 set -e
 
 # Define schema default se não existir
-SCHEMA="${POSTGRES_SCHEMA:-tech-challenge-order-service}"
+SCHEMA="${POSTGRES_SCHEMA:-default-schema}"
 
 echo "Creating schema '$SCHEMA'..."
 
